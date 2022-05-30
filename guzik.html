@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guzik</title>
+</head>
+<body>
+    <button onmouseover="zmianakoloru()" 
+            onclick="win()"
+            style="position: fixed;" 
+            id="guzik">
+        Klikaj mordo</button>
+
+        <script>
+            function run() {
+                let guzik = document.getElementById("guzik");
+                let r = Math.random(); 
+                r *= window.innerHeight; 
+                r = Math.round(r); 
+                r -= guzik.clientHeight;
+                let top = r.toString() + "px"; 
+                guzik.style.top = top;
+
+                r = Math.random(); 
+                r *= window.innerWidth; 
+                r = Math.round(r); 
+                r -= guzik.clientWidth;
+                let left = r.toString() + "px";
+                guzik.style.left = left;
+
+                console.log("Gratulacje użytkowniku");
+            }
+            function win() {
+                window.alert("Michael orson");
+            }
+            setInterval("run()", 1000);
+
+            function zmianakoloru() {
+            let r = Math.round(Math.random()*170);
+            let g = Math.round(Math.random()*190);
+            let b = Math.round(Math.random()*150);
+
+            let color = "rgba(" + r + "," + g + "," + b + ")";
+            
+            document.body.style.backgroundColor = color;
+        }
+        </script>
+</body>
+</html>
